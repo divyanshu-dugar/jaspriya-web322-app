@@ -17,7 +17,8 @@ const storeService = require('./store-service');
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
   res.redirect('/about');
